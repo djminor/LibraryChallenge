@@ -48,20 +48,25 @@ long double Factorial(int toFactorialize) {
 long double Fibonacci(int nthMember) {
 	stack<double> fibSequence;
 	fibSequence.push(1.0);
-	for (size_t i = 1; i < nthMember; i++) {
-		if (i == 1) {
-			fibSequence.push(1.0);
-		}
-		else {
-			double temp1 = fibSequence.top();
-			fibSequence.pop();
-			double temp2 = fibSequence.top();
-			double temp3 = temp1 + temp2;
-			fibSequence.push(temp1);
-			fibSequence.push(temp3);
+	if (nthMember == 1) {
+		cout << fibSequence.top() << endl;
+		return fibSequence.top();
+	} else {
+		for (size_t i = 1; i < nthMember; i++) {
+			if (i == 1) {
+				fibSequence.push(1.0);
+			}
+			else {
+				double temp1 = fibSequence.top();
+				fibSequence.pop();
+				double temp2 = fibSequence.top();
+				double temp3 = temp1 + temp2;
+				fibSequence.push(temp1);
+				fibSequence.push(temp3);
+			}
 		}
 	}
-	cout << fibSequence.top();
+	cout << fibSequence.top() << endl;
 	return fibSequence.top();
 }
 
